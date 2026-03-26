@@ -7,7 +7,7 @@ description: >
   ranks the top 5-10 by actionability. Use when asked to find actionable issues,
   triage issues, find easy fixes, find good first issues, or identify what to
   work on next.
-license: Apache-2.0
+license: MIT
 compatibility: Requires git, gh CLI. Optional: sentry CLI for Sentry issues.
 metadata:
   author: MathurAditya724

@@ -6,7 +6,7 @@ description: >
   self-review, commit with human-style messages, and open a draft PR.
   Use when given a GitHub issue URL, Sentry issue URL, or asked to fix/resolve
   an issue.
-license: Apache-2.0
+license: MIT
 compatibility: Requires git, gh CLI. Optional: sentry CLI for Sentry issues.
 metadata:
   author: MathurAditya724
@@ -41,6 +41,20 @@ sentry issue plan <PROJECT-ID>
 ```
 
 Use the short ID format (`PROJECT-123`), not the numeric ID.
+
+### Early Exit Checks
+
+Before proceeding, verify the issue is actually open and not already addressed:
+
+- If the issue is **closed or resolved**, stop and inform the user.
+- Check for **existing open PRs** that already reference this issue:
+
+```bash
+gh pr list --state open --search "<issue-number>" --json number,title,headRefName,url
+```
+
+If a PR already addresses the issue, stop and share the PR link with the user
+instead of creating a duplicate.
 
 ### What to Extract
 
@@ -88,8 +102,8 @@ If a template exists, you will use it verbatim in Phase 8.
 
 Look for commit style in this order:
 
-1. Config files: `.commitlintrc`, `.commitlintrc.json`, `.commitlintrc.yml`,
-   `commitlint.config.js`, `commitlint.config.ts`
+1. Config files: `.commitlintrc`, `.commitlintrc.json`, `.commitlintrc.yaml`,
+   `.commitlintrc.yml`, `commitlint.config.js`, `commitlint.config.ts`
 2. `package.json` — check for `commitlint` config or `standard-version`/
    `semantic-release` in dependencies
 3. `CONTRIBUTING.md` — may document the convention
