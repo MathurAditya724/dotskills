@@ -8,7 +8,7 @@ description: >
   triage issues, find easy fixes, find good first issues, or identify what to
   work on next.
 license: MIT
-compatibility: Requires git, gh CLI. Optional: sentry CLI for Sentry issues.
+compatibility: "Requires git, gh CLI. Optional: sentry CLI for Sentry issues."
 metadata:
   author: MathurAditya724
   version: "1.0"

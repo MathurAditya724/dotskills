@@ -7,7 +7,7 @@ description: >
   Use when given a GitHub issue URL, Sentry issue URL, or asked to fix/resolve
   an issue.
 license: MIT
-compatibility: Requires git, gh CLI. Optional: sentry CLI for Sentry issues.
+compatibility: "Requires git, gh CLI. Optional: sentry CLI for Sentry issues."
 metadata:
   author: MathurAditya724
   version: "1.0"
